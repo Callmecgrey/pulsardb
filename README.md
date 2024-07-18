@@ -1,7 +1,7 @@
 # pulsardb
 
+```
 pulserdb/
-│
 ├── server/
 │   ├── nodejs/
 │   │   ├── src/
@@ -103,3 +103,4 @@ pulserdb/
 ├── docker-compose.yml
 ├── Dockerfile
 └── README.md
+```
