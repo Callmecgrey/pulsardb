@@ -51,11 +51,33 @@ pulserdb/
 │   ├── public/
 │   ├── src/
 │   │   ├── components/
+│   │   │   ├── DashboardSidebar/
+│   │   │   │   ├── DashboardSidebar.tsx
+│   │   │   │   └── DashboardSidebar.module.css
+│   │   │   ├── Header/
+│   │   │   │   ├── Header.tsx
+│   │   │   │   └── Header.module.css
+│   │   │   ├── LoginForm/
+│   │   │   │   ├── LoginForm.tsx
+│   │   │   │   └── LoginForm.module.css
+│   │   │   ├── SignupForm/
+│   │   │   │   ├── SignupForm.tsx
+│   │   │   │   └── SignupForm.module.css
+│   │   │   └── index.ts
 │   │   ├── pages/
+│   │   │   ├── api/
+│   │   │   │   └── hello.ts
+│   │   │   ├── dashboard.tsx
+│   │   │   ├── index.tsx
+│   │   │   ├── login.tsx
+│   │   │   └── signup.tsx
 │   │   ├── services/
 │   │   ├── utils/
-│   │   ├── App.js
-│   │   └── index.js
+│   │   ├── App.tsx
+│   │   ├── index.tsx
+│   │   └── styles/
+│   │       ├── globals.css
+│   │       └── Home.module.css
 │   ├── tests/
 │   ├── package.json
 │   ├── .eslintrc.json
