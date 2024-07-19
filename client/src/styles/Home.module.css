@@ -9,9 +9,9 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: relative;
 }
 
 .logo {
@@ -20,19 +20,33 @@
   color: #ffffff;
 }
 
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
 .navLinks {
   list-style: none;
   display: flex;
   gap: 20px;
+  margin: 0 auto;
+}
+
+.navLinksOpen {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .navLinks li {
   cursor: pointer;
   color: #ffffff;
-}
-
-.dropdown {
   position: relative;
+  padding: 10px;
 }
 
 .dropdownMenu {
@@ -43,10 +57,39 @@
   list-style: none;
   border-radius: 5px;
   top: 30px;
+  left: 0;
+  width: max-content;
+  min-width: 150px;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
-.dropdown:hover .dropdownMenu {
+.dropdownMenuOpen {
   display: block;
+  opacity: 1;
+}
+
+.featuresDropdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.featuresDropdown li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.featuresDropdown li div {
+  text-align: center;
+}
+
+.featuresDropdown li span {
+  font-size: 12px;
+  color: #bbb;
 }
 
 .getStartedButton {
@@ -57,6 +100,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin-left: auto;
 }
 
 .main {
@@ -81,7 +125,8 @@
   margin-top: 20px;
 }
 
-.ctaButton, .learnMoreButton {
+.ctaButton,
+.learnMoreButton {
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
@@ -100,23 +145,68 @@
   border: 2px solid #6c63ff;
 }
 
+/* dropdown effect web */
+@media (min-width: 769px) {
+  .dropdown > i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown:hover > i {
+    transform: rotate(180deg);
+  }
+
+  .dropdown:hover .dropdownMenu {
+    display: block;
+    opacity: 1;
+  }
+
+  .featuresDropdown i {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+}
+
+/* dropdown effect mobile */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
+  .hamburger {
+    display: block;
   }
 
   .navLinks {
+    display: none;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+    background-color: #0a0a23;
+    position: absolute;
+    top: 49.7px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .navLinksOpen {
+    display: flex;
   }
 
   .dropdownMenu {
     position: static;
     display: none;
+    width: 100%;
   }
 
-  .dropdown:hover .dropdownMenu {
+  .dropdownOpen .dropdownMenu {
     display: block;
-    position: static;
+  }
+
+  .featuresDropdown {
+    grid-template-columns: 1fr;
+  }
+
+  .getStartedButton {
+    margin-top: 10px;
+    align-self: center;
   }
 }
