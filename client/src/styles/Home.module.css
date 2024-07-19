@@ -1,0 +1,122 @@
+.header {
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navLinks li {
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  background-color: #182848;
+  padding: 10px;
+  list-style: none;
+  border-radius: 5px;
+  top: 30px;
+}
+
+.dropdown:hover .dropdownMenu {
+  display: block;
+}
+
+.getStartedButton {
+  background-color: #6c63ff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.main {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 50px;
+}
+
+.mainHeading {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.highlight {
+  color: #6c63ff;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.ctaButton, .learnMoreButton {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ctaButton {
+  background-color: #6c63ff;
+  color: #ffffff;
+  border: none;
+}
+
+.learnMoreButton {
+  background-color: transparent;
+  color: #6c63ff;
+  border: 2px solid #6c63ff;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dropdownMenu {
+    position: static;
+    display: none;
+  }
+
+  .dropdown:hover .dropdownMenu {
+    display: block;
+    position: static;
+  }
+}
