@@ -36,7 +36,7 @@ const Home = () => {
             <li className={`${styles.dropdown} ${isProductDropdownOpen ? styles.dropdownOpen : ''}`} onClick={toggleProductDropdown}>
               Products <i className={`fas ${isProductDropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
               <ul className={`${styles.dropdownMenu} ${isProductDropdownOpen ? styles.dropdownMenuOpen : ''}`}>
-                <li><i className="fas fa-check"></i> Plrverify</li>
+                <li><i className="fas fa-user-shield"></i> Plrverify</li>
                 <li><i className="fas fa-database"></i> PulsarDB</li>
                 <li><i className="fas fa-fingerprint"></i> Fingerprint</li>
                 <li><i className="fas fa-shield-alt"></i> Security</li>
@@ -71,8 +71,11 @@ const Home = () => {
             <li>Pricing</li>
             <li>Changelog</li>
             <li>Docs</li>
-            <button className={styles.getStartedButton}>Login</button>
+            <li className={`${styles.mobileOnly} ${isNavOpen ? styles.navLinksOpen : ''}`}>
+              <button className={styles.getStartedButton}>Login</button>
+            </li>
           </ul>
+          <button className={`${styles.getStartedButton} ${styles.desktopOnly}`}>Login</button>
         </nav>
       </header>
       <main className={styles.main}>

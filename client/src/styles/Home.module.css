@@ -71,8 +71,8 @@
 }
 
 .featuresDropdown {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -80,11 +80,10 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-direction: column;
 }
 
 .featuresDropdown li div {
-  text-align: center;
+  text-align: left;
 }
 
 .featuresDropdown li span {
@@ -100,7 +99,15 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  margin-left: auto;
+}
+
+/* Hide button in mobile view */
+.desktopOnly {
+  display: inline-block;
+}
+
+.mobileOnly {
+  display: none;
 }
 
 .main {
@@ -152,11 +159,18 @@
     transition: transform 0.3s ease;
   }
 
+  /* Only rotate the chevron icon on hover over the dropdown title */
   .dropdown:hover > i {
     transform: rotate(180deg);
   }
 
-  .dropdown:hover .dropdownMenu {
+  /* Only show the dropdown menu when hovering over the dropdown title */
+  .dropdown > .dropdownMenu {
+    display: none;
+    opacity: 0;
+  }
+
+  .dropdown:hover > .dropdownMenu {
     display: block;
     opacity: 1;
   }
@@ -165,12 +179,27 @@
     font-size: 24px;
     margin-right: 10px;
   }
+
+  /* Adjust login button to be standalone on the right */
+  .getStartedButton {
+    margin-left: auto;
+  }
+
+  /* Hide the mobile login button */
+  .mobileOnly {
+    display: none;
+  }
 }
 
 /* dropdown effect mobile */
 @media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
   .hamburger {
     display: block;
+    margin-left: auto;
   }
 
   .navLinks {
@@ -192,8 +221,9 @@
   }
 
   .dropdownMenu {
-    position: static;
     display: none;
+    padding: 0;
+    margin: 0;
     width: 100%;
   }
 
@@ -202,11 +232,25 @@
   }
 
   .featuresDropdown {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Show the mobile login button */
+  .mobileOnly {
+    display: flex;
   }
 
   .getStartedButton {
     margin-top: 10px;
     align-self: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Hide the desktop login button */
+  .desktopOnly {
+    display: none;
   }
 }
