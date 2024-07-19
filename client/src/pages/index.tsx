@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
 const Home = () => {
@@ -9,16 +10,19 @@ const Home = () => {
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
+    // Close dropdowns when the nav is toggled
+    setIsProductDropdownOpen(false);
+    setIsFeaturesDropdownOpen(false);
   };
 
   const toggleProductDropdown = () => {
     setIsProductDropdownOpen(!isProductDropdownOpen);
-    setIsFeaturesDropdownOpen(false); // Close features dropdown when products is opened
+    setIsFeaturesDropdownOpen(false);
   };
 
   const toggleFeaturesDropdown = () => {
     setIsFeaturesDropdownOpen(!isFeaturesDropdownOpen);
-    setIsProductDropdownOpen(false); // Close products dropdown when features is opened
+    setIsProductDropdownOpen(false);
   };
 
   return (
@@ -36,46 +40,52 @@ const Home = () => {
             <li className={`${styles.dropdown} ${isProductDropdownOpen ? styles.dropdownOpen : ''}`} onClick={toggleProductDropdown}>
               Products <i className={`fas ${isProductDropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
               <ul className={`${styles.dropdownMenu} ${isProductDropdownOpen ? styles.dropdownMenuOpen : ''}`}>
-                <li><i className="fas fa-user-shield"></i> Plrverify</li>
-                <li><i className="fas fa-database"></i> PulsarDB</li>
-                <li><i className="fas fa-fingerprint"></i> Fingerprint</li>
-                <li><i className="fas fa-shield-alt"></i> Security</li>
+                <li><Link href="/plrverify"><i className="fas fa-user-shield"></i> Plrverify</Link></li>
+                <li><Link href="/pulsardb"><i className="fas fa-database"></i> PulsarDB</Link></li>
+                <li><Link href="/fingerprint"><i className="fas fa-fingerprint"></i> Fingerprint</Link></li>
+                <li><Link href="/security"><i className="fas fa-shield-alt"></i> Security</Link></li>
               </ul>
             </li>
             <li className={`${styles.dropdown} ${isFeaturesDropdownOpen ? styles.dropdownOpen : ''}`} onClick={toggleFeaturesDropdown}>
               Features <i className={`fas ${isFeaturesDropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
               <ul className={`${styles.dropdownMenu} ${isFeaturesDropdownOpen ? styles.dropdownMenuOpen : ''} ${styles.featuresDropdown}`}>
                 <li>
-                  <i className="fas fa-database"></i>
-                  <div>
-                    <div>Space Bucket Databases</div>
-                    <span>Scalable and efficient data storage.</span>
-                  </div>
+                  <Link href="/features/space-bucket-databases">
+                    <i className="fas fa-database"></i>
+                    <div>
+                      <div>Space Bucket Databases</div>
+                      <span>Scalable and efficient data storage.</span>
+                    </div>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fas fa-robot"></i>
-                  <div>
-                    <div>AntiBots Protection</div>
-                    <span>Protect your applications from bots.</span>
-                  </div>
+                  <Link href="/features/anti-bots-protection">
+                    <i className="fas fa-robot"></i>
+                    <div>
+                      <div>AntiBots Protection</div>
+                      <span>Protect your applications from bots.</span>
+                    </div>
+                  </Link>
                 </li>
                 <li>
-                  <i className="fas fa-check-circle"></i>
-                  <div>
-                    <div>Verify Data Authenticity</div>
-                    <span>Ensure data integrity and authenticity.</span>
-                  </div>
+                  <Link href="/features/verify-data-authenticity">
+                    <i className="fas fa-check-circle"></i>
+                    <div>
+                      <div>Verify Data Authenticity</div>
+                      <span>Ensure data integrity and authenticity.</span>
+                    </div>
+                  </Link>
                 </li>
               </ul>
             </li>
-            <li>Pricing</li>
-            <li>Changelog</li>
-            <li>Docs</li>
+            <li><Link href="/pricing">Pricing</Link></li>
+            <li><Link href="/changelog">Changelog</Link></li>
+            <li><Link href="/docs">Docs</Link></li>
             <li className={`${styles.mobileOnly} ${isNavOpen ? styles.navLinksOpen : ''}`}>
-              <button className={styles.getStartedButton}>Login</button>
+              <Link href="/login"><button className={styles.getStartedButton}>Login</button></Link>
             </li>
           </ul>
-          <button className={`${styles.getStartedButton} ${styles.desktopOnly}`}>Login</button>
+          <Link href="/login"><button className={`${styles.getStartedButton} ${styles.desktopOnly}`}>Login</button></Link>
         </nav>
       </header>
       <main className={styles.main}>
@@ -84,8 +94,8 @@ const Home = () => {
         </h1>
         <p>Unlock Full-Spectrum AI-Powered Solutions for Strategy, Ideation, and Post-Writing Excellence.</p>
         <div className={styles.buttons}>
-          <button className={styles.ctaButton}>Get Started</button>
-          <button className={styles.learnMoreButton}>Docs</button>
+          <Link href="/get-started"><button className={styles.ctaButton}>Get Started</button></Link>
+          <Link href="/docs"><button className={styles.learnMoreButton}>Docs</button></Link>
         </div>
       </main>
     </>

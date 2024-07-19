@@ -2,3 +2,24 @@ body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+a:hover {
+    text-decoration: none;
+  }
+  
+/* Additional styles for the feature dropdown links */
+.featuresDropdown a {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+}
+  
+.featuresDropdown a:hover {
+    text-decoration: underline;
+}
